@@ -360,7 +360,7 @@ export default function PortfolioPreview() {
                 exit="exit"
                 className="absolute inset-0"
               >
-                {activeCategory.isVideo ? (
+                {"isVideo" in activeCategory && activeCategory.isVideo ? (
                   <video
                     key={activeCategory.image}
                     className="h-full w-full object-cover"
