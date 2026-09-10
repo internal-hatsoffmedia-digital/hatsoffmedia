@@ -131,7 +131,7 @@ export default function HeroVisual() {
             className="absolute inset-0"
           >
             <Image
-              src="/images/work/hatsoff-homepage.jpg"
+              src="/images/work/hatsoff-homepage.png"
               alt="Hatsoff Website"
               fill
               priority

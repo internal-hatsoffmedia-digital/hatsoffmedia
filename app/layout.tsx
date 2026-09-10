@@ -10,6 +10,7 @@ import PageLoader from "@/components/common/PageLoader";
 import Cursor from "@/components/common/Cursor";
 import FloatingSocials from "@/components/common/FloatingSocials";
 import FaqBot from "@/components/common/FaqBot";
+import ComingSoonGate from "@/components/coming-soon/ComingSoonGate";
 import { cn } from "@/lib/utils";
 
 // 2 Standardized Font Families for Hatsoff Media:
@@ -51,18 +52,20 @@ export default function RootLayout({
         <div className="relative min-h-screen">
           <MouseGlow />
 
-          <Navbar />
-          <LeftNavbar />
+          <ComingSoonGate>
+            <Navbar />
+            <LeftNavbar />
 
-          <main>{children}</main>
+            <main>{children}</main>
 
-          <Footer />
+            <Footer />
 
-          {/* Floating Social Media Dock (Bottom-Right) */}
-          <FloatingSocials />
+            {/* Floating Social Media Dock (Bottom-Right) */}
+            <FloatingSocials />
 
-          {/* Custom ChatGPT-Style FAQ Assistant (Bottom-Left) */}
-          <FaqBot />
+            {/* Custom ChatGPT-Style FAQ Assistant (Bottom-Left) */}
+            <FaqBot />
+          </ComingSoonGate>
         </div>
       </body>
     </html>

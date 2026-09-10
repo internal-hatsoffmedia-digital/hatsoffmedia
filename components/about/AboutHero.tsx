@@ -247,7 +247,7 @@ export default function AboutHero() {
         "
       >
         <Image
-          src="/images/about/team-banner.webp"
+          src="/images/about/team-banner.jpg"
           alt="Hatsoff Media Team"
           fill
           priority

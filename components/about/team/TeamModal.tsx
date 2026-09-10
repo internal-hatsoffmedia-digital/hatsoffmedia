@@ -2,10 +2,18 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa6";
 
-export default function TeamModal({ member, close }: any) {
+import type { TeamMember } from "./TeamSection";
+
+export default function TeamModal({
+  member,
+  close,
+}: {
+  member: TeamMember;
+  close: () => void;
+}) {
   return (
     <div
       className="
@@ -15,16 +23,17 @@ export default function TeamModal({ member, close }: any) {
         flex
         items-center
         justify-center
-        bg-black/20
-        backdrop-blur-sm
-        px-6
+        bg-black/30
+        px-4
+        backdrop-blur-md
+        sm:px-6
       "
     >
       <motion.div
         initial={{
           opacity: 0,
-          scale: 0.95,
-          y: 20,
+          scale: 0.96,
+          y: 22,
         }}
         animate={{
           opacity: 1,
@@ -33,136 +42,161 @@ export default function TeamModal({ member, close }: any) {
         }}
         exit={{
           opacity: 0,
-          scale: 0.95,
-          y: 20,
+          scale: 0.96,
+          y: 22,
         }}
         transition={{
-          duration: 0.3,
+          duration: 0.28,
           ease: "easeOut",
         }}
         className="
           relative
           w-full
-          max-w-[800px]
-          rounded-[32px]
-          bg-white
-          p-10
-          shadow-2xl
-          md:p-16
+          max-w-[940px]
+          overflow-hidden
+          rounded-[30px]
+          border
+          border-white/10
+          bg-[#111111]
+          p-4
+          shadow-[0_40px_100px_rgba(0,0,0,0.35)]
+          md:p-6
         "
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,204,0,0.18),_transparent_30%)]" />
+
         <button
           onClick={close}
           className="
             absolute
-            right-6
-            top-6
+            right-5
+            top-5
+            z-20
             flex
-            h-8
-            w-8
+            h-9
+            w-9
             items-center
             justify-center
             rounded-full
-            text-neutral-400
+            border
+            border-white/10
+            bg-white/5
+            text-white/70
             transition-colors
-            hover:bg-neutral-100
+            hover:bg-[#FFCC00]
             hover:text-black
           "
         >
-          <X size={20} strokeWidth={2} />
+          <X size={18} strokeWidth={2} />
         </button>
 
-        <div
-          className="
-            flex
-            flex-col
-            items-center
-            gap-10
-            md:flex-row
-            md:gap-14
-          "
-        >
-          {/* Image */}
-          <div
-            className="
-              relative
-              h-64
-              w-64
-              shrink-0
-              overflow-hidden
-              rounded-full
-              bg-neutral-100
-              shadow-inner
-              md:h-80
-              md:w-80
-            "
-          >
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover grayscale"
-            />
+        <div className="relative grid gap-6 md:grid-cols-[340px_1fr] md:gap-8">
+          <div className="relative">
+            <div className="relative h-[320px] overflow-hidden rounded-[24px] border border-white/10 bg-neutral-200 shadow-inner md:h-[440px]">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover object-top grayscale"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f10] via-black/15 to-transparent" />
+
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <p className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#FFCC00]">
+                  {member.role}
+                </p>
+                <p className="mt-2 text-sm font-medium text-white/80">
+                  {member.tagline}
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="flex flex-col text-center md:text-left">
-            <h2
-              className="
-                text-3xl
-                font-bold
-                tracking-tight
-                text-black
-                md:text-4xl
-              "
-            >
-              {member.name}
-            </h2>
+          <div className="flex flex-col justify-between pt-2">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="h-[2px] w-8 rounded-full bg-[#FFCC00]" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#FFCC00]">
+                  Profile
+                </span>
+              </div>
 
-            <p
-              className="
-                mt-2
-                text-sm
-                font-semibold
-                text-neutral-500
-              "
-            >
-              {member.role}
-            </p>
+              <h2 className="mt-5 text-3xl font-black tracking-[-0.06em] text-white md:text-4xl">
+                {member.name}
+              </h2>
 
-            <p
-              className="
-                mt-6
-                text-sm
-                leading-relaxed
-                text-neutral-600
-                md:text-base
-                md:leading-7
-              "
-            >
-              {member.description}
-            </p>
+              <p className="mt-3 text-sm font-medium leading-6 text-white/65 md:text-[15px]">
+                {member.description}
+              </p>
+            </div>
 
-            <div className="mt-8 flex justify-center md:justify-start">
+            <div className="mt-6">
+              <p className="text-[9px] font-bold uppercase tracking-[0.28em] text-white/45">
+                Strengths
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {member.specialties.map((specialty) => (
+                  <span
+                    key={specialty}
+                    className="rounded-full border border-[#FFCC00]/30 bg-[#FFCC00]/10 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#FFCC00]"
+                  >
+                    {specialty}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-[18px] border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-white/40">
+                  Focus
+                </p>
+                <p className="mt-2 text-sm font-semibold text-white/90">
+                  {member.tagline}
+                </p>
+              </div>
+
+              <div className="rounded-[18px] border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-white/40">
+                  Impact
+                </p>
+                <p className="mt-2 text-sm font-semibold text-white/90">
+                  Smart execution with standout creative energy.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-7 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
+              <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white/40">
+                <span className="h-2 w-2 rounded-full bg-[#FFCC00]" />
+                Hatsoff Media
+              </div>
+
               <a
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  flex
-                  h-12
-                  w-12
+                  inline-flex
                   items-center
-                  justify-center
+                  gap-2
                   rounded-full
-                  bg-black
-                  text-white
+                  bg-[#FFCC00]
+                  px-4
+                  py-2.5
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  text-black
                   transition-transform
-                  hover:scale-105
-                  active:scale-95
+                  hover:scale-[1.02]
                 "
               >
-                <FaLinkedinIn size={18} />
+                LinkedIn
+                <ArrowUpRight size={14} />
               </a>
             </div>
           </div>

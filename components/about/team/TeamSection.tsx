@@ -6,11 +6,13 @@ import { ArrowUpRight } from "lucide-react";
 
 import TeamModal from "./TeamModal";
 
-type TeamMember = {
+export type TeamMember = {
   name: string;
   role: string;
   image: string;
   linkedin: string;
+  tagline: string;
+  specialties: string[];
   description: string;
 };
 
@@ -20,64 +22,80 @@ const teamMembers: TeamMember[] = [
     role: "Director",
     image: "/images/about/team/Sabari.png",
     linkedin: "#",
+    tagline: "Brand strategy and growth vision",
+    specialties: ["Business Growth", "Creative Direction", "Leadership"],
     description:
-      "Driving business vision, strategy, and creative growth at Hatsoff Media.",
+      "Sabari brings a strategic lens to every brand decision, blending business clarity with creative ambition to help teams grow with purpose.",
   },
   {
     name: "Veena Sai S",
     role: "Managing Director",
     image: "/images/about/team/Veena.png",
     linkedin: "#",
+    tagline: "Operations, people and momentum",
+    specialties: ["Operations", "Partnerships", "Execution"],
     description:
-      "Leading operations, partnerships, and organizational growth.",
+      "Veena keeps the engine moving with a calm, structured approach that connects ideas, talent, and client outcomes into one streamlined system.",
   },
   {
     name: "Ram Kumar M",
     role: "Creative Lead",
     image: "/images/about/team/Ram.png",
     linkedin: "#",
+    tagline: "Turning ideas into memorable experiences",
+    specialties: ["Brand Story", "Visual Systems", "Concept Design"],
     description:
-      "Building creative concepts and visual experiences for brands.",
+      "Ram leads the creative conversation by shaping ideas into bold visual narratives that feel distinct, premium, and instantly recognizable.",
   },
   {
     name: "Harish K",
     role: "Sales & Marketing Lead",
     image: "/images/about/team/Harish.png",
     linkedin: "#",
+    tagline: "Connecting brands with growth opportunities",
+    specialties: ["Marketing", "Sales Strategy", "Business Development"],
     description:
-      "Helping businesses connect with the right digital solutions.",
+      "Harish bridges the gap between brand positioning and revenue goals, helping businesses unlock the right market attention at the right time.",
   },
   {
     name: "Kamalesh G",
     role: "Production Control Lead",
     image: "/images/about/team/Kamalesh.png",
     linkedin: "#",
+    tagline: "Smooth delivery, sharper output",
+    specialties: ["Production", "Quality Control", "Workflow Design"],
     description:
-      "Managing production workflows and ensuring quality delivery.",
+      "Kamalesh ensures projects move with precision, balancing timelines, delivery standards, and creative intent so every output feels polished.",
   },
   {
     name: "Muskan S",
     role: "Associate Lead & PC",
     image: "/images/about/team/Muskan.png",
     linkedin: "#",
+    tagline: "Keeping big ideas organized and on track",
+    specialties: ["Project Coordination", "Client Support", "Operations"],
     description:
-      "Coordinating projects and supporting smooth execution.",
+      "Muskan is the calm behind the chaos, coordinating timelines, communication, and execution so each project feels effortless for clients.",
   },
   {
     name: "Sudheesh G",
     role: "Senior Video Editor",
     image: "/images/about/team/Sudheesh.png",
     linkedin: "#",
+    tagline: "Crafting stories that keep attention",
+    specialties: ["Editing", "Motion Stories", "Visual Rhythm"],
     description:
-      "Creating engaging visual stories through professional editing.",
+      "Sudheesh turns raw footage into sharp, emotional storytelling that feels cinematic, clear, and deeply aligned with brand tone.",
   },
   {
     name: "Ganesh K",
     role: "Associate Lead & Graphic Designer",
     image: "/images/about/team/Ganesh.png",
     linkedin: "#",
+    tagline: "Designing identities people remember",
+    specialties: ["Graphics", "Brand Assets", "Visual Identity"],
     description:
-      "Designing creative visuals that strengthen brand identity.",
+      "Ganesh blends design thinking and execution to create visuals that elevate identity, clarify messaging, and feel premium across every touchpoint.",
   },
 ];
 
@@ -492,7 +510,11 @@ function TeamPortrait({
           relative
           aspect-[3/4]
           overflow-hidden
+          rounded-[24px]
+          border
+          border-white/30
           bg-neutral-100
+          shadow-[0_18px_45px_rgba(0,0,0,0.12)]
         "
       >
         <img
@@ -508,29 +530,28 @@ function TeamPortrait({
             transition-all
             duration-700
             ease-out
-            group-hover:scale-[1.035]
+            group-hover:scale-[1.06]
             group-hover:grayscale-0
           "
         />
 
-        {/* Minimal dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f10] via-[#0f0f10]/25 to-transparent" />
 
         <div
           className="
             pointer-events-none
             absolute
             inset-0
-            bg-black
+            bg-gradient-to-br
+            from-[#FFCC00]/10
+            via-transparent
+            to-transparent
             opacity-0
             transition-opacity
             duration-500
-            group-hover:opacity-[0.06]
+            group-hover:opacity-100
           "
         />
-
-        {/* =====================================================
-            NUMBER
-        ====================================================== */}
 
         <div
           className="
@@ -543,10 +564,12 @@ function TeamPortrait({
             w-7
             items-center
             justify-center
-            bg-white
+            rounded-full
+            bg-white/90
             text-[8px]
             font-black
             text-black
+            backdrop-blur-sm
             transition-all
             duration-300
             group-hover:bg-[#FFCC00]
@@ -554,10 +577,6 @@ function TeamPortrait({
         >
           {String(index + 1).padStart(2, "0")}
         </div>
-
-        {/* =====================================================
-            ARROW
-        ====================================================== */}
 
         <div
           className="
@@ -570,6 +589,7 @@ function TeamPortrait({
             w-8
             items-center
             justify-center
+            rounded-full
             bg-[#FFCC00]
             text-black
             opacity-0
@@ -583,59 +603,58 @@ function TeamPortrait({
           <ArrowUpRight size={15} strokeWidth={2} />
         </div>
 
-        {/* =====================================================
-            ROLE
-        ====================================================== */}
+        <div className="absolute inset-x-3 bottom-3 z-10">
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <span
+              className="
+                text-[8px]
+                font-bold
+                uppercase
+                tracking-[0.18em]
+                text-[#FFCC00]
+                sm:text-[9px]
+              "
+            >
+              {member.role}
+            </span>
+            <span className="h-px flex-1 bg-white/20" />
+          </div>
 
-        <div
-          className="
-            absolute
-            bottom-0
-            left-0
-            right-0
-            bg-gradient-to-t
-            from-black/60
-            to-transparent
-            p-3
-            pt-10
-          "
-        >
-          <span
-            className="
-              text-[8px]
-              font-bold
-              uppercase
-              tracking-[0.16em]
-              text-[#FFCC00]
-              sm:text-[9px]
-            "
-          >
-            {member.role}
-          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {member.specialties.slice(0, 2).map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-white/15 bg-white/8 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-white/80 backdrop-blur-sm"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* =======================================================
-          NAME
-      ======================================================== */}
-
       <div className="mt-3">
         <div className="flex items-center justify-between gap-2">
-          <h3
-            className="
-              text-[14px]
-              font-black
-              leading-none
-              tracking-[-0.035em]
-              text-black
-              transition-colors
-              duration-300
-              group-hover:text-[#ffcc00]
-              sm:text-base
-            "
-          >
-            {member.name}
-          </h3>
+          <div>
+            <h3
+              className="
+                text-[14px]
+                font-black
+                leading-none
+                tracking-[-0.035em]
+                text-black
+                transition-colors
+                duration-300
+                group-hover:text-[#ffcc00]
+                sm:text-base
+              "
+            >
+              {member.name}
+            </h3>
+            <p className="mt-1 text-[9px] font-medium uppercase tracking-[0.18em] text-neutral-500">
+              {member.tagline}
+            </p>
+          </div>
 
           <span
             className="
@@ -645,7 +664,7 @@ function TeamPortrait({
               bg-[#FFCC00]
               transition-all
               duration-300
-              group-hover:w-7
+              group-hover:w-8
             "
           />
         </div>

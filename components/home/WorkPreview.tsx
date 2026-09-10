@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
@@ -9,43 +9,63 @@ import { ArrowUpRight } from "lucide-react";
 const projects = [
   {
     id: "01",
-    category: "Healthcare",
-    title: "Aashara Hospital",
-    subtitle: "Branding • Website • SEO",
+    category: "Maternity Care",
+    title: "Maternity Care",
+    subtitle: "Branding • Website • Healthcare",
     description:
-      "A complete digital transformation focused on branding, patient experience, UI/UX and SEO.",
+      "A warm, trusted healthcare brand experience designed for maternity care, family confidence, and digital credibility.",
     image: "/portfolio/aashara.jpg",
-    tags: ["Branding", "Website", "SEO"],
+    tags: ["Branding", "Website", "Healthcare"],
   },
   {
     id: "02",
-    category: "Healthcare",
-    title: "Senthil Dental Care",
-    subtitle: "Website • UI/UX",
+    category: "Clinic",
+    title: "Doctor Practice",
+    subtitle: "Website • Trust • UX",
     description:
-      "Premium dental website focused on trust, appointments and user experience.",
-    image: "/portfolio/senthil-dental.jpg",
-    tags: ["Website", "UI/UX", "WordPress"],
+      "A clean digital presence built to communicate expertise, appointment ease, and patient-first service.",
+    image: "/portfolio/doctor.png",
+    tags: ["Website", "Healthcare", "UX"],
   },
   {
     id: "03",
-    category: "FMCG",
-    title: "Langhar Rice",
-    subtitle: "Landing Page",
+    category: "Rice Brand",
+    title: "Rice Brand",
+    subtitle: "Branding • Product Site",
     description:
-      "High-converting landing page with marketplace integrations.",
+      "A premium rice brand presentation with a stronger product story, modern visuals, and conversion-focused landing design.",
     image: "/portfolio/langhar.jpg",
-    tags: ["Landing Page", "Marketing", "Creative"],
+    tags: ["Branding", "Product", "Creative"],
   },
   {
     id: "04",
-    category: "Corporate",
-    title: "Smart Sales Partners",
-    subtitle: "Corporate Website",
+    category: "Travel Posters",
+    title: "Travel Poster Series",
+    subtitle: "Poster Design • Visual Storytelling",
     description:
-      "Modern corporate website built for lead generation and credibility.",
+      "Destination-led poster artwork designed to turn travel stories into bold, memorable visual campaigns.",
+    image: "/portfolio/traval.jpeg",
+    tags: ["Posters", "Travel", "Campaigns"],
+  },
+  {
+    id: "05",
+    category: "Dental Care",
+    title: "Dental Care",
+    subtitle: "Healthcare • Website • Social",
+    description:
+      "A patient-first digital experience built to communicate clarity, trust, and accessible care.",
+    image: "/portfolio/senthil-dental.jpg",
+    tags: ["Healthcare", "Website", "Social"],
+  },
+  {
+    id: "06",
+    category: "Sales Business",
+    title: "Sales Business",
+    subtitle: "Business Website",
+    description:
+      "A crisp sales-focused business website designed to build trust, showcase value, and generate qualified leads.",
     image: "/portfolio/smartsales.jpg",
-    tags: ["Corporate", "Growth", "Development"],
+    tags: ["Sales", "Business", "Growth"],
   },
 ];
 
@@ -99,8 +119,19 @@ const panelVariants: Variants = {
 
 export default function PortfolioPreview() {
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const project = projects[active];
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActive((current) => (current + 1) % projects.length);
+    }, 4600);
+
+    return () => window.clearInterval(timer);
+  }, [isPaused]);
 
   return (
     <section className="relative overflow-hidden bg-white py-32 lg:py-40">
@@ -163,6 +194,10 @@ export default function PortfolioPreview() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlurCapture={() => setIsPaused(false)}
           className="mt-24 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch"
         >
           {/* Left: project index / selector */}
@@ -232,7 +267,7 @@ export default function PortfolioPreview() {
                 <div className="absolute inset-0">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.category} portfolio preview`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover opacity-70"
