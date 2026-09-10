@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,33 +34,6 @@ const navItems: NavItem[] = [
 export default function LeftNavbar() {
   const pathname = usePathname();
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [isOverDark, setIsOverDark] = useState(false);
-
-  // Detect if the side rail is over the dark footer or dark sections
-  useEffect(() => {
-    const checkDarkOverlap = () => {
-      const rail = document.getElementById("left-nav-rail");
-      const footer = document.querySelector("footer");
-      if (!rail || !footer) return;
-
-      const railRect = rail.getBoundingClientRect();
-      const footerRect = footer.getBoundingClientRect();
-
-      // Rail overlaps with dark footer
-      const overlaps =
-        railRect.bottom >= footerRect.top && railRect.top <= footerRect.bottom;
-      setIsOverDark(overlaps);
-    };
-
-    window.addEventListener("scroll", checkDarkOverlap, { passive: true });
-    window.addEventListener("resize", checkDarkOverlap, { passive: true });
-    checkDarkOverlap();
-
-    return () => {
-      window.removeEventListener("scroll", checkDarkOverlap);
-      window.removeEventListener("resize", checkDarkOverlap);
-    };
-  }, []);
 
   return (
     <aside
@@ -73,37 +46,33 @@ export default function LeftNavbar() {
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className={`
+        className="
           relative
           flex
           flex-col
           items-center
           gap-2
           rounded-full
+          border
+          border-white/70
+          bg-white/[0.16]
           p-2
+          shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_2px_rgba(0,0,0,0.03)]
           backdrop-blur-2xl
           transition-all
           duration-300
-          ${
-            isOverDark
-              ? "bg-black/40 border border-white/25 shadow-[0_16px_45px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.25)] hover:bg-black/55"
-              : "bg-white/[0.16] border border-white/70 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_2px_rgba(0,0,0,0.03)] hover:bg-white/[0.28] hover:shadow-[0_14px_40px_rgba(0,0,0,0.09)]"
-          }
-        `}
+          hover:bg-white/[0.28]
+          hover:shadow-[0_14px_40px_rgba(0,0,0,0.09)]
+        "
       >
         {/* Brand Insignia / Monogram */}
         <Link
           href="/"
           title="Hatsoff Media Home"
-          className={`
+          className="
             group relative flex h-10 w-10 items-center justify-center rounded-full
-            transition-all duration-300 hover:scale-105
-            ${
-              isOverDark
-                ? "bg-white/10 hover:bg-[#ffcc00]/25 text-[#ffcc00]"
-                : "bg-white/40 hover:bg-[#ffcc00] text-black border border-white/60 shadow-xs hover:text-black"
-            }
-          `}
+            border border-white/60 bg-white/40 text-black shadow-xs transition-all duration-300 hover:scale-105 hover:bg-[#ffcc00] hover:text-black
+          "
         >
           <span className="font-heading text-sm font-extrabold transition-colors">
             H
@@ -121,11 +90,7 @@ export default function LeftNavbar() {
         </Link>
 
         {/* Subtle Divider */}
-        <div
-          className={`h-[1px] w-6 my-0.5 transition-colors duration-300 ${
-            isOverDark ? "bg-white/20" : "bg-black/10"
-          }`}
-        />
+        <div className="my-0.5 h-[1px] w-6 bg-black/10 transition-colors duration-300" />
 
         {/* Navigation Items */}
         <nav className="flex flex-col items-center gap-1.5">
@@ -158,8 +123,6 @@ export default function LeftNavbar() {
                     ${
                       isActive
                         ? "bg-[#ffcc00] text-neutral-950 shadow-[0_0_20px_rgba(255,204,0,0.55)] font-bold scale-105"
-                        : isOverDark
-                        ? "text-neutral-200 hover:text-white hover:bg-white/15"
                         : "text-neutral-700 hover:text-black hover:bg-white/50 hover:shadow-xs"
                     }
                   `}
@@ -205,11 +168,7 @@ export default function LeftNavbar() {
         </nav>
 
         {/* Subtle Divider */}
-        <div
-          className={`h-[1px] w-6 my-0.5 transition-colors duration-300 ${
-            isOverDark ? "bg-white/15" : "bg-black/10"
-          }`}
-        />
+        <div className="my-0.5 h-[1px] w-6 bg-black/10 transition-colors duration-300" />
 
         {/* Bottom CTA / Quick Project Trigger */}
         <Link

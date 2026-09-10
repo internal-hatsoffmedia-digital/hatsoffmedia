@@ -11,6 +11,7 @@ export type TeamMember = {
   role: string;
   image: string;
   linkedin: string;
+  github: string;
   tagline: string;
   specialties: string[];
   description: string;
@@ -22,6 +23,7 @@ const teamMembers: TeamMember[] = [
     role: "Director",
     image: "/images/about/team/Sabari.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Brand strategy and growth vision",
     specialties: ["Business Growth", "Creative Direction", "Leadership"],
     description:
@@ -32,6 +34,7 @@ const teamMembers: TeamMember[] = [
     role: "Managing Director",
     image: "/images/about/team/Veena.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Operations, people and momentum",
     specialties: ["Operations", "Partnerships", "Execution"],
     description:
@@ -42,6 +45,7 @@ const teamMembers: TeamMember[] = [
     role: "Creative Lead",
     image: "/images/about/team/Ram.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Turning ideas into memorable experiences",
     specialties: ["Brand Story", "Visual Systems", "Concept Design"],
     description:
@@ -52,6 +56,7 @@ const teamMembers: TeamMember[] = [
     role: "Sales & Marketing Lead",
     image: "/images/about/team/Harish.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Connecting brands with growth opportunities",
     specialties: ["Marketing", "Sales Strategy", "Business Development"],
     description:
@@ -62,6 +67,7 @@ const teamMembers: TeamMember[] = [
     role: "Production Control Lead",
     image: "/images/about/team/Kamalesh.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Smooth delivery, sharper output",
     specialties: ["Production", "Quality Control", "Workflow Design"],
     description:
@@ -72,6 +78,7 @@ const teamMembers: TeamMember[] = [
     role: "Associate Lead & PC",
     image: "/images/about/team/Muskan.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Keeping big ideas organized and on track",
     specialties: ["Project Coordination", "Client Support", "Operations"],
     description:
@@ -82,6 +89,7 @@ const teamMembers: TeamMember[] = [
     role: "Senior Video Editor",
     image: "/images/about/team/Sudheesh.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Crafting stories that keep attention",
     specialties: ["Editing", "Motion Stories", "Visual Rhythm"],
     description:
@@ -92,6 +100,7 @@ const teamMembers: TeamMember[] = [
     role: "Associate Lead & Graphic Designer",
     image: "/images/about/team/Ganesh.png",
     linkedin: "#",
+    github: "https://github.com/",
     tagline: "Designing identities people remember",
     specialties: ["Graphics", "Brand Assets", "Visual Identity"],
     description:

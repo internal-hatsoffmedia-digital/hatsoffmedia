@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 import type { TeamMember } from "./TeamSection";
 
@@ -174,30 +174,60 @@ export default function TeamModal({
                 Hatsoff Media
               </div>
 
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  bg-[#FFCC00]
-                  px-4
-                  py-2.5
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[0.18em]
-                  text-black
-                  transition-transform
-                  hover:scale-[1.02]
-                "
-              >
-                LinkedIn
-                <ArrowUpRight size={14} />
-              </a>
+              <div className="flex items-center gap-2">
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    px-3
+                    py-2.5
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-[0.18em]
+                    text-white
+                    transition-transform
+                    hover:scale-[1.02]
+                  "
+                >
+                  <FaLinkedinIn size={12} />
+                  LinkedIn
+                </a>
+
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    bg-[#FFCC00]
+                    px-4
+                    py-2.5
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-[0.18em]
+                    text-black
+                    transition-transform
+                    hover:scale-[1.02]
+                  "
+                >
+                  <FaGithub size={12} />
+                  GitHub
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
