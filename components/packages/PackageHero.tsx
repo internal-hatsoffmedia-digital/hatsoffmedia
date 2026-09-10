@@ -356,7 +356,7 @@ export default function PackageHero() {
             >
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               <span className="relative z-10">Choose My Plan</span>
-              <span className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-black text-[#FFCC00] transition-colors duration-300 group-hover:bg-[#FFCC00] group-hover:text-black">
+              <span className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-black text-[#FFCC00] transition-colors duration-300 group-hover:bg-white group-hover:text-white">
                 <ArrowUpRight size={16} />
               </span>
             </Link>

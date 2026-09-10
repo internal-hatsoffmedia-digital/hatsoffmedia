@@ -22,17 +22,36 @@ export default function ComingSoonGate({ children }: { children: React.ReactNode
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [timeLeft, setTimeLeft] = useState(() => getTimeRemaining());
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    isLive: false,
+  });
 
   useEffect(() => {
     setIsUnlocked(isSiteUnlocked());
-  }, []);
 
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setTimeLeft(getTimeRemaining());
+    const updateCountdown = () => {
+      const next = getTimeRemaining();
+      setTimeLeft(next);
+
       if (Date.now() >= LAUNCH_DATE.getTime()) {
         setIsUnlocked(true);
+        return true;
+      }
+
+      return false;
+    };
+
+    if (updateCountdown()) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      const shouldStop = updateCountdown();
+      if (shouldStop) {
         window.clearInterval(interval);
       }
     }, 1000);

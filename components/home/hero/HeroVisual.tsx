@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -40,7 +40,6 @@ export default function HeroVisual() {
     y.set(0);
   }
 
-  // Variants for parent propagation
   const shineVariants = {
     initial: { x: "-120%" },
     hover: { x: "120%" },
@@ -65,7 +64,7 @@ export default function HeroVisual() {
         duration: 1,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="relative flex justify-center lg:justify-end"
+      className="relative flex justify-center overflow-visible lg:justify-end"
     >
       <motion.div
         ref={cardRef}
@@ -80,6 +79,7 @@ export default function HeroVisual() {
         }}
         className="
           relative
+          z-10
           w-full
           max-w-[620px]
           overflow-hidden
@@ -90,7 +90,6 @@ export default function HeroVisual() {
           shadow-[0_40px_120px_rgba(0,0,0,.08)]
         "
       >
-        {/* Gold Border / Sheen Sweep */}
         <motion.div
           variants={shineVariants}
           transition={{
@@ -100,7 +99,6 @@ export default function HeroVisual() {
           className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-transparent via-[#ffcc00]/25 to-transparent"
         />
 
-        {/* Header */}
         <div className="border-b border-neutral-200 p-8">
           <p className="text-xs font-semibold tracking-[0.35em] text-neutral-500 uppercase">
             Featured Project
@@ -113,7 +111,6 @@ export default function HeroVisual() {
           </p>
         </div>
 
-        {/* Preview */}
         <div className="relative aspect-[16/10] overflow-hidden">
           <motion.div
             initial={{
@@ -140,7 +137,6 @@ export default function HeroVisual() {
           </motion.div>
         </div>
 
-        {/* Footer */}
         <div className="flex items-center justify-between p-8">
           <div>
             <p className="text-sm text-neutral-500">Services</p>
@@ -168,73 +164,73 @@ export default function HeroVisual() {
         </div>
       </motion.div>
 
-      {/* Modern Floating Metric Badge 1 (Top Left) */}
       <motion.div
-        initial={{ opacity: 0, x: -30, y: 20 }}
+        initial={{ opacity: 0, x: -20, y: 20 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 0.8, duration: 0.7 }}
         className="
           pointer-events-none
           absolute
-          -left-6
-          top-16
-          z-20
+          -left-2
+          top-14
+          z-30
           hidden
           items-center
           gap-3
-          rounded-2xl
+          rounded-[22px]
           border
-          border-black/5
-          bg-white/90
+          border-[#171717]/10
+          bg-white/80
           px-4
           py-3
-          shadow-[0_16px_35px_rgba(0,0,0,0.08)]
-          backdrop-blur-md
-          animate-float-slow
+          shadow-[0_18px_40px_rgba(15,15,15,0.12)]
+          backdrop-blur-xl
+          ring-1
+          ring-white/70
           sm:flex
         "
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffcc00]/20 text-lg">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ffcc00]/20 text-lg shadow-inner shadow-[#ffcc00]/30">
           📈
         </div>
         <div>
-          <p className="text-xs font-bold text-neutral-900">+340% Traffic</p>
-          <p className="text-[10px] font-medium text-neutral-500">Average Brand Growth</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-neutral-500">Growth</p>
+          <p className="text-sm font-black text-neutral-900">+340% Traffic</p>
         </div>
       </motion.div>
 
-      {/* Modern Floating Metric Badge 2 (Bottom Right) */}
       <motion.div
-        initial={{ opacity: 0, x: 30, y: 20 }}
+        initial={{ opacity: 0, x: 20, y: 20 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 1.0, duration: 0.7 }}
         className="
           pointer-events-none
           absolute
-          -bottom-6
-          right-6
-          z-20
+          -bottom-4
+          right-4
+          z-30
           hidden
           items-center
           gap-3
-          rounded-2xl
+          rounded-[22px]
           border
-          border-black/5
-          bg-white/95
-          px-5
-          py-3.5
-          shadow-[0_16px_35px_rgba(0,0,0,0.1)]
-          backdrop-blur-md
-          animate-float-gentle
+          border-[#171717]/10
+          bg-[#fffdf8]/90
+          px-4
+          py-3
+          shadow-[0_18px_40px_rgba(15,15,15,0.12)]
+          backdrop-blur-xl
+          ring-1
+          ring-white/80
           sm:flex
         "
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffcc00] text-black font-black text-sm">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ffcc00] text-sm font-black text-black shadow-[0_10px_20px_rgba(255,204,0,0.35)]">
           5★
         </div>
         <div>
-          <p className="text-xs font-bold text-neutral-900">Rated Excellent</p>
-          <p className="text-[10px] font-medium text-neutral-500">60+ Global Partners</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-neutral-500">Clients</p>
+          <p className="text-sm font-black text-neutral-900">Rated Excellent</p>
         </div>
       </motion.div>
     </motion.div>

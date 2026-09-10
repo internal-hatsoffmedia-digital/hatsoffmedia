@@ -247,6 +247,7 @@ export default function AboutHero() {
         "
       >
         <Image
+          key="about-team-banner-v2"
           src="/images/about/team-banner.jpg"
           alt="Hatsoff Media Team"
           fill
