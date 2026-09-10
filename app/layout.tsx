@@ -28,6 +28,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Hatsoff Media",
   description: "Hatsoff Media",
+  icons: {
+    icon: "/images/siteicon.png",
+    shortcut: "/images/siteicon.png",
+    apple: "/images/siteicon.png",
+  },
 };
 
 export default function RootLayout({
