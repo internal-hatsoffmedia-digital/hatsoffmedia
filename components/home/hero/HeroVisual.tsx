@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -111,7 +110,7 @@ export default function HeroVisual() {
           </p>
         </div>
 
-        <div className="relative aspect-[16/10] overflow-hidden">
+        <div className="relative aspect-[16/10] overflow-hidden bg-black">
           <motion.div
             initial={{
               scale: 1.15,
@@ -127,14 +126,16 @@ export default function HeroVisual() {
             }}
             className="absolute inset-0"
           >
-            <Image
-              src="/images/work/hatsoff-homepage.png"
-              alt="Hatsoff Website"
-              fill
-              priority
-              className="object-cover"
+            <video
+              src="/videos/herosection.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover"
             />
           </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
         </div>
 
         <div className="flex items-center justify-between p-8">

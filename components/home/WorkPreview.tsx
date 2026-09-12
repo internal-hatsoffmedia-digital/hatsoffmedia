@@ -211,26 +211,24 @@ export default function PortfolioPreview() {
                   onMouseEnter={() => setActive(i)}
                   className={`
                     group flex items-center justify-between gap-6 px-8 py-7
-                    text-left transition-colors duration-300
-                    ${isActive ? "bg-white" : "hover:bg-white/70"}
+                    text-left transition-all duration-300
+                    ${isActive ? "bg-[#fff9e6] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)]" : "bg-white/50 hover:bg-white/90"}
                   `}
                 >
                   <div className="flex items-center gap-6">
                     <span
-                      className={`text-sm font-semibold tabular-nums transition-colors duration-300 ${isActive ? "text-[#B68A00]" : "text-neutral-400"
-                        }`}
+                      className={`text-sm font-semibold tabular-nums transition-colors duration-300 ${isActive ? "text-[#B68A00]" : "text-neutral-500"}`}
                     >
                       {p.id}
                     </span>
 
                     <div>
                       <p
-                        className={`text-lg font-bold tracking-[-0.02em] transition-colors duration-300 ${isActive ? "text-black" : "text-neutral-500"
-                          }`}
+                        className={`text-lg font-bold tracking-[-0.02em] transition-colors duration-300 ${isActive ? "text-neutral-900" : "text-neutral-700"}`}
                       >
                         {p.title}
                       </p>
-                      <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
+                      <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
                         {p.category}
                       </p>
                     </div>
@@ -359,15 +357,16 @@ export default function PortfolioPreview() {
                   justify-center
                   gap-5
                   rounded-full
-                  bg-black
+                  bg-white
                   px-8
                   py-5
                   font-semibold
                   text-white
+                  shadow-sm
                   transition-all
                   duration-300
                   hover:bg-[#FFCC00]
-                  hover:text-black
+                  hover:text-white
                 "
               >
                 Explore Portfolio
