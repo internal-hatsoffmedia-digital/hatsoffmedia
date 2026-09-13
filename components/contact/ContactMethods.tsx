@@ -35,7 +35,7 @@ const contactMethods = [
   {
     icon: MapPin,
     title: "Visit Office",
-    value: "Chennai, Tamil Nadu",
+    value: "VGN Cosmopolis, Ambattur, Chennai",
     description: "Meet us for a discussion.",
     href: "#map",
   },

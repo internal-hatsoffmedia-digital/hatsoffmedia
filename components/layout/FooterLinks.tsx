@@ -64,7 +64,7 @@ export default function FooterLinks() {
           Contact
         </h3>
         <div className="mt-4 space-y-2 text-sm text-neutral-400">
-          <p>Chennai, Tamil Nadu, India</p>
+          <p>VGN Cosmopolis, 56, Mahatma Gandhi Rd, Shanthi Nagar, KSR Nagar, Ambattur, Chennai, Tamil Nadu 600058</p>
           <p>
             <a
               href="mailto:contact@hatsoffmedia.in"

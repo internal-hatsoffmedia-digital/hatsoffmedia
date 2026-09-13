@@ -16,7 +16,7 @@ const story = [
     phase: "The Spark",
     title: "Freelancing Roots",
     description:
-      "Founded by Sabari Nadhaan, Hatsoff began as a solo freelance operation focused on solving design problems with real business intent.",
+      "Founded by Sabarinathan, Hatsoff began as a solo freelance operation focused on solving design problems with real business intent.",
     icon: Lightbulb,
   },
   {

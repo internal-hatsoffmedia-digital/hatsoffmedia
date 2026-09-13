@@ -118,11 +118,12 @@ export default function AboutHero() {
           className="
           mt-10
           max-w-5xl
-          text-6xl
+          text-5xl
           font-black
-          leading-[0.85]
+          leading-[0.88]
           tracking-[-0.07em]
           text-black
+          sm:text-6xl
           md:text-8xl
           xl:text-[110px]
           "
@@ -141,7 +142,7 @@ export default function AboutHero() {
           mt-10
           flex
           flex-col
-          gap-8
+          gap-6
           md:flex-row
           md:items-center
           "
@@ -149,9 +150,11 @@ export default function AboutHero() {
           <p
             className="
             max-w-xl
-            text-lg
-            leading-8
+            text-base
+            leading-7
             text-neutral-600
+            sm:text-lg
+            sm:leading-8
             "
           >
             Hatsoff Media Pvt Ltd is a Chennai-based branding, creative
@@ -171,11 +174,13 @@ export default function AboutHero() {
               group
               flex
               items-center
+              justify-center
               gap-3
               rounded-full
               bg-[#FFCC00]
-              px-8
-              py-4
+              px-6
+              py-3.5
+              text-sm
               font-bold
               text-black
               shadow-[0_8px_25px_rgba(255,204,0,0.35)]
@@ -184,6 +189,9 @@ export default function AboutHero() {
               hover:bg-neutral-900
               hover:text-white
               hover:shadow-xl
+              sm:px-8
+              sm:py-4
+              sm:text-base
               "
             >
               <span>Talk To Our Team</span>
@@ -198,13 +206,15 @@ export default function AboutHero() {
               group
               flex
               items-center
+              justify-center
               gap-3
               rounded-full
               border
               border-neutral-300
               bg-white
-              px-8
-              py-4
+              px-6
+              py-3.5
+              text-sm
               font-bold
               text-black
               transition-all
@@ -212,6 +222,9 @@ export default function AboutHero() {
               hover:border-[#FFCC00]
               hover:bg-[#fffdf2]
               hover:shadow-md
+              sm:px-8
+              sm:py-4
+              sm:text-base
               "
             >
               <span>View Our Work</span>
@@ -240,15 +253,17 @@ export default function AboutHero() {
         }}
         className="
         relative
-        mt-20
-        h-[500px]
+        mt-16
+        h-[340px]
         overflow-hidden
+        sm:mt-20
+        sm:h-[420px]
         lg:h-[650px]
         "
       >
         <Image
           key="about-team-banner-v2"
-          src="/images/about/team-banner.jpg"
+          src="/images/about/team-banner.png"
           alt="Hatsoff Media Team"
           fill
           priority

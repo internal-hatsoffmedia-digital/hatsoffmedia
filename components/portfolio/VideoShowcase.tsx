@@ -28,66 +28,71 @@ const cinematicVideos = [
   },
 ];
 
-const reelVideos = [
-  {
-    id: 4,
-    title: "Amma Naana",
-    category: "Reel Edit",
-    video: "/videos/amma-naana.mp4",
-  },
-  {
-    id: 5,
-    title: "Collab Kit",
-    category: "Social Reel",
-    video: "/videos/collab-kit.mp4",
-  },
-  {
-    id: 6,
-    title: "AI Video",
-    category: "AI Campaign",
-    video: "/videos/ai-video.mp4",
-  },
-  {
-    id: 7,
-    title: "Deekshu",
-    category: "Clinic Reel",
-    video: "/videos/deekshu-clinic.mp4",
-  },
-  {
-    id: 8,
-    title: "Briyani",
-    category: "Food Reel",
-    video: "/videos/Briyani.mp4",
-  },
-  {
-    id: 9,
-    title: "Briyani D",
-    category: "Food Story",
-    video: "/videos/BriyaniD.mp4",
-  },
-  {
-    id: 10,
-    title: "AI Launch",
-    category: "Campaign Reel",
-    video: "/videos/AI.mp4",
-  },
+const posterCards = [
+  "/images/posters/poster-01-01.jpg",
+  "/images/posters/poster-02-1-budget-day.jpeg",
+  "/images/posters/poster-03-1-what-s-your-sipcode.jpg",
+  "/images/posters/poster-04-10-kungpaochicken.jpg",
+  "/images/posters/poster-05-5-ponnirice.jpg",
+  "/images/posters/poster-06-analogical-poster-6-2.jpg",
+  "/images/posters/poster-07-artboard-1-copy.png",
+  "/images/posters/poster-08-artboard-2-copy.png",
+  "/images/posters/poster-09-bh-carousel-06.jpg",
+  "/images/posters/poster-10-butter-paneer-makhni-mac-cheese-pasta.jpg",
+  "/images/posters/poster-11-hair-detox-treatment.jpg",
+  "/images/posters/poster-12-hmaug26176.png",
+  "/images/posters/poster-13-hmaug26178.png",
+  "/images/posters/poster-14-hmmay26342-2.jpg",
+  "/images/posters/poster-15-massage-benefits-our-list-recovered.jpg",
+  "/images/posters/poster-16-poster-3-2.jpg",
+  "/images/posters/poster-17-sdc.jpg",
+  "/images/posters/poster-18-sdc-1.jpg",
+  "/images/posters/poster-19-splash-4.jpg",
 ];
 
-const marqueeVideos = [...reelVideos, ...reelVideos];
+const shortsVideos = [
+  "/videos/ai-video.mp4",
+  "/videos/AI.mp4",
+  "/videos/amma-naana.mp4",
+  "/videos/Briyani.mp4",
+  "/videos/BriyaniD.mp4",
+  "/videos/deekshu-clinic.mp4",
+  "/videos/Product.mp4",
+  "/videos/My Video-2.mp4",
+  "/videos/My Video-3.mp4",
+  "/videos/My Video-4.mp4",
+  "/videos/Mobile boodham (1).mp4",
+  "/videos/collab kit.mp4",
+  "/videos/collab-kit.mp4",
+];
 
 type VideoShowcaseProps = {
   onOpenVideo: (video: string) => void;
 };
 
 export default function VideoShowcase({ onOpenVideo }: VideoShowcaseProps) {
-  const reelCarouselRef = useRef<HTMLDivElement>(null);
+  const posterCarouselRef = useRef<HTMLDivElement>(null);
+  const shortsCarouselRef = useRef<HTMLDivElement>(null);
 
-  const scrollCarousel = (direction: "left" | "right") => {
-    const container = reelCarouselRef.current;
+  const scrollPosterCarousel = (direction: "left" | "right") => {
+    const container = posterCarouselRef.current;
     if (!container) return;
 
-    const firstCard = container.querySelector(".reel-card") as HTMLElement | null;
-    const amount = firstCard ? firstCard.offsetWidth + 20 : 280;
+    const firstCard = container.querySelector(".poster-card") as HTMLElement | null;
+    const amount = firstCard ? firstCard.offsetWidth + 18 : 260;
+
+    container.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollShortsCarousel = (direction: "left" | "right") => {
+    const container = shortsCarouselRef.current;
+    if (!container) return;
+
+    const firstCard = container.querySelector(".shorts-card") as HTMLElement | null;
+    const amount = firstCard ? firstCard.offsetWidth + 18 : 280;
 
     container.scrollBy({
       left: direction === "left" ? -amount : amount,
@@ -193,26 +198,26 @@ export default function VideoShowcase({ onOpenVideo }: VideoShowcaseProps) {
           </motion.div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-20">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-black/50">Reels</p>
-              <h3 className="mt-2 text-3xl font-black text-[#111111] sm:text-4xl">Short-form impact</h3>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-black/50">Short-form</p>
+              <h3 className="mt-2 text-3xl font-black text-[#111111] sm:text-4xl">Reels & shorts</h3>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => scrollCarousel("left")}
-                aria-label="Scroll reel carousel left"
+                onClick={() => scrollShortsCarousel("left")}
+                aria-label="Scroll shorts carousel left"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black shadow-sm transition hover:border-black/20 hover:bg-white"
               >
                 <ArrowLeft className="h-4 w-4" />
               </button>
               <button
                 type="button"
-                onClick={() => scrollCarousel("right")}
-                aria-label="Scroll reel carousel right"
+                onClick={() => scrollShortsCarousel("right")}
+                aria-label="Scroll shorts carousel right"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black shadow-sm transition hover:border-black/20 hover:bg-white"
               >
                 <ArrowRight className="h-4 w-4" />
@@ -224,40 +229,133 @@ export default function VideoShowcase({ onOpenVideo }: VideoShowcaseProps) {
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#f7f5ef] to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#f7f5ef] to-transparent" />
 
-            <div ref={reelCarouselRef} className="flex w-full gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              {marqueeVideos.map((video, index) => (
+            <div
+              ref={shortsCarouselRef}
+              className="flex w-full gap-4 overflow-x-auto pb-3 [scrollbar-width:none] snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+            >
+              {shortsVideos.map((src, index) => (
                 <motion.div
-                  key={`${video.id}-${index}`}
-                  whileHover={{ y: -8, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="reel-card group relative w-[260px] shrink-0 overflow-hidden rounded-[26px] border border-black/10 bg-[#101010] shadow-[0_18px_44px_rgba(17,17,17,0.12)] sm:w-[280px]"
+                  key={src}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.03 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="shorts-card group relative w-[220px] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/10 bg-black shadow-[0_16px_38px_rgba(17,17,17,0.12)] sm:w-[240px] lg:w-[260px]"
                 >
-                  <div className="relative aspect-[9/16] overflow-hidden">
+                  <div className="relative aspect-[9/16] overflow-hidden rounded-[28px]">
                     <video
-                      src={video.video}
+                      src={src}
                       autoPlay
                       muted
                       loop
                       playsInline
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-transparent" />
                   </div>
 
-                  <div className="absolute inset-x-0 bottom-0 p-4">
-                    <div className="flex items-center justify-end gap-3">
-                      <button
-                        type="button"
-                        onClick={() => onOpenVideo(video.video)}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/25 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:bg-black/35"
-                      >
-                        View Video
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
+                    <span className="rounded-full border border-white/20 bg-black/20 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm">
+                      Shorts
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => onOpenVideo(src.replace(/^\//, ""))}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/35"
+                      aria-label="Open shorts video"
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </button>
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-black/50">Selected work</p>
+              <h3 className="mt-2 text-3xl font-black text-[#111111] sm:text-4xl">Creative direction</h3>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => scrollPosterCarousel("left")}
+                aria-label="Scroll poster carousel left"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black shadow-sm transition hover:border-black/20 hover:bg-white"
+              >
+                <ArrowLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollPosterCarousel("right")}
+                aria-label="Scroll poster carousel right"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black shadow-sm transition hover:border-black/20 hover:bg-white"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden pb-2">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#f7f5ef] to-transparent sm:w-16" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#f7f5ef] to-transparent sm:w-16" />
+
+            <div
+              ref={posterCarouselRef}
+              className="flex w-full gap-4 overflow-x-auto pb-3 [scrollbar-width:none] snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+            >
+              {posterCards.map((src, index) => {
+                const isVideo = src.endsWith(".mp4") || src.endsWith(".mov") || src.endsWith(".webm");
+
+                return (
+                  <motion.div
+                    key={src}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.02 }}
+                    whileHover={{ y: -6, scale: 1.01 }}
+                    className="poster-card group relative w-[220px] shrink-0 snap-center overflow-hidden rounded-[22px] border border-black/10 bg-white shadow-[0_12px_34px_rgba(17,17,17,0.08)] sm:w-[250px] lg:w-[280px]"
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-[22px] bg-[#f2f0ea]">
+                      {isVideo ? (
+                        <video
+                          src={src}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <img
+                          src={src}
+                          alt="Portfolio poster"
+                          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        />
+                      )}
+                    </div>
+
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+
+                    <button
+                      type="button"
+                      onClick={() => onOpenVideo(src.replace(/^\//, ""))}
+                      className="absolute right-2 top-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white shadow-lg backdrop-blur-sm transition hover:bg-black/45"
+                      aria-label={isVideo ? "Open video preview" : "Open poster preview"}
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </button>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>

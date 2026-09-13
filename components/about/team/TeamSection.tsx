@@ -19,7 +19,7 @@ export type TeamMember = {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Sabari K",
+    name: "Sabarinathan",
     role: "Director",
     image: "/images/about/team/Sabari.png",
     linkedin: "#",
@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
     tagline: "Brand strategy and growth vision",
     specialties: ["Business Growth", "Creative Direction", "Leadership"],
     description:
-      "Sabari brings a strategic lens to every brand decision, blending business clarity with creative ambition to help teams grow with purpose.",
+      "Sabarinathan brings a strategic lens to every brand decision, blending business clarity with creative ambition to help teams grow with purpose.",
   },
   {
     name: "Veena Sai S",
