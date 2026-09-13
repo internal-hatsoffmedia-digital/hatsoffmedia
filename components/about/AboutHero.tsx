@@ -254,7 +254,7 @@ export default function AboutHero() {
         className="
         relative
         mt-16
-        h-[260px]
+        h-[300px]
         overflow-hidden
         sm:mt-20
         sm:h-[420px]
@@ -269,8 +269,12 @@ export default function AboutHero() {
           priority
           sizes="(max-width: 768px) 100vw, 100vw"
           className="
+          h-full
+          w-full
+          scale-[1.15]
           object-cover
           object-center
+          sm:scale-100
           "
         />
 
