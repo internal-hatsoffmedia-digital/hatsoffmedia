@@ -254,7 +254,7 @@ export default function AboutHero() {
         className="
         relative
         mt-16
-        h-[340px]
+        h-[260px]
         overflow-hidden
         sm:mt-20
         sm:h-[420px]
@@ -263,10 +263,11 @@ export default function AboutHero() {
       >
         <Image
           key="about-team-banner-v2"
-          src="/images/about/team/team-banner.png"
+          src="/images/about/team-banner.jpg"
           alt="Hatsoff Media Team"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, 100vw"
           className="
           object-cover
           object-center
