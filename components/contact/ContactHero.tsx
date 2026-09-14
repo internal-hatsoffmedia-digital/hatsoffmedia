@@ -11,7 +11,7 @@ const stats = [
     label: "Average Response",
   },
   {
-    value: "100+",
+    value: "10000+",
     label: "Projects Delivered",
   },
   {

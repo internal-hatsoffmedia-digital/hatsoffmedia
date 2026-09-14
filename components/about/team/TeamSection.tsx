@@ -64,7 +64,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Kamalesh G",
-    role: "Production Control Lead",
+    role: "Operation Lead",
     image: "/images/about/team/Kamalesh.png",
     linkedin: "#",
     github: "https://github.com/",
@@ -75,7 +75,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Muskan S",
-    role: "Associate Lead & PC",
+    role: "Associate Lead (Flow Force)",
     image: "/images/about/team/Muskan.png",
     linkedin: "#",
     github: "https://github.com/",
@@ -86,7 +86,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Sudheesh G",
-    role: "Senior Video Editor",
+    role: "Associate Lead (Cut Masters)",
     image: "/images/about/team/Sudheesh.png",
     linkedin: "#",
     github: "https://github.com/",
@@ -97,7 +97,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Ganesh K",
-    role: "Associate Lead & Graphic Designer",
+    role: "Associate Lead (Creative Clan)",
     image: "/images/about/team/Ganesh.png",
     linkedin: "#",
     github: "https://github.com/",

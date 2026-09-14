@@ -284,7 +284,7 @@ export default function ServicesHero() {
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FFCC00] text-black">
                 <Flame size={12} />
               </span>
-              <span>100+ Projects Delivered • 50+ Happy Clients</span>
+              <span>10000+ Projects Delivered • 120+ Happy Clients</span>
             </motion.div>
 
             {/* Additional Modern Floating Visual Metric Card (Bottom Center) */}

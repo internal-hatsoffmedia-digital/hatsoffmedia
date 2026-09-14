@@ -12,11 +12,11 @@ const stats = [
     label: "Business Packages",
   },
   {
-    value: "100+",
+    value: "10000+",
     label: "Projects Delivered",
   },
   {
-    value: "50+",
+    value: "120+",
     label: "Brands Served",
   },
   {

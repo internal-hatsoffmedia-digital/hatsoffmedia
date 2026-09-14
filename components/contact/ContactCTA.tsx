@@ -113,8 +113,8 @@ export default function ContactCTA() {
               className="mt-14 grid grid-cols-2 gap-6 border-t border-neutral-200/80 pt-10 sm:grid-cols-4 sm:gap-8"
             >
               {[
-                { value: "100+", label: "Projects Completed" },
-                { value: "50+", label: "Brands Scaled" },
+                { value: "10000+", label: "Projects Completed" },
+                { value: "120+", label: "Brands Scaled" },
                 { value: "10+", label: "Industry Verticals" },
                 { value: "5★", label: "Client Satisfaction" },
               ].map((stat, idx) => (

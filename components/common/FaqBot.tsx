@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -48,115 +49,20 @@ function HattyAvatar({
   className?: string;
 }) {
   const dimension = size === "sm" ? 28 : size === "lg" ? 44 : 36;
+
   return (
     <div
-      className={`relative flex items-center justify-center shrink-0 rounded-full overflow-hidden ${className}`}
+      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#FFCC00]/30 bg-[#FFF6C9] ${className}`}
       style={{ width: dimension, height: dimension }}
     >
-      <svg
-        viewBox="0 0 64 64"
+      <Image
+        src="/images/Hat.png"
+        alt="Hatsoff bot avatar"
         width={dimension}
         height={dimension}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
         className="h-full w-full object-cover select-none"
-      >
-        {/* Background Circle with Warm Glow */}
-        <circle cx="32" cy="32" r="32" fill="url(#hattyGrad)" />
-
-        {/* Lady Silhouette / Shoulders */}
-        <path
-          d="M14 60C14 48 22 43 32 43C42 43 50 48 50 60V64H14V60Z"
-          fill="#1A1A1E"
-        />
-
-        {/* Chic Gold Collar Trim */}
-        <path
-          d="M26 43L32 49L38 43"
-          stroke="#FFCC00"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Neck */}
-        <path d="M28 35H36V44H28V35Z" fill="#F7D3B5" />
-
-        {/* Hair Back Silhouette */}
-        <path
-          d="M19 24C19 16 24 11 32 11C40 11 45 16 45 24V38C45 42 42 44 38 44H26C22 44 19 42 19 38V24Z"
-          fill="#2C1A14"
-        />
-
-        {/* Face */}
-        <rect x="23" y="20" width="18" height="20" rx="9" fill="#FFDFC4" />
-
-        {/* Smiling Eyes */}
-        <path
-          d="M26 27C27 25.8 28.5 25.8 29.5 27"
-          stroke="#2C1A14"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-        <path
-          d="M34.5 27C35.5 25.8 37 25.8 38 27"
-          stroke="#2C1A14"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-
-        {/* Blushing Cheeks */}
-        <circle cx="25.5" cy="31.5" r="2" fill="#FFAAA6" opacity="0.65" />
-        <circle cx="38.5" cy="31.5" r="2" fill="#FFAAA6" opacity="0.65" />
-
-        {/* Warm Smile */}
-        <path
-          d="M29 33.5C30.5 35.5 33.5 35.5 35 33.5"
-          stroke="#D45B6A"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-
-        {/* Hair Front / Stylish Modern Bangs */}
-        <path
-          d="M20 23C20 15 25 11 32 11C39 11 44 15 44 23C42 19 37 18 32 18C27 18 22 20 20 23Z"
-          fill="#3D2314"
-        />
-        <path
-          d="M20 22C21 27 22 32 23 34C22 32 21 27 20 22Z"
-          fill="#3D2314"
-        />
-        <path
-          d="M44 22C43 27 42 32 41 34C42 32 43 27 44 22Z"
-          fill="#3D2314"
-        />
-
-        {/* Signature Hatsoff Gold Headband */}
-        <path
-          d="M19 21C19 14 24 10 32 10C40 10 45 14 45 21"
-          stroke="#FFCC00"
-          strokeWidth="2.8"
-          strokeLinecap="round"
-        />
-
-        {/* Concierge Headset with Microphone */}
-        <circle cx="44" cy="26" r="2.5" fill="#FFCC00" />
-        <path
-          d="M44 28.5C44 32.5 40 35.5 37 36"
-          stroke="#FFCC00"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <circle cx="36" cy="36" r="1.3" fill="#111111" />
-
-        <defs>
-          <linearGradient id="hattyGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FFF2A3" />
-            <stop offset="0.5" stopColor="#FFCC00" />
-            <stop offset="1" stopColor="#E5B700" />
-          </linearGradient>
-        </defs>
-      </svg>
+        priority
+      />
     </div>
   );
 }

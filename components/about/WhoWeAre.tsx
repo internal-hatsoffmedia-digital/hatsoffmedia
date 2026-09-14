@@ -15,7 +15,7 @@ const stats = [
     title: "Creative Minds",
   },
   {
-    number: "100+",
+    number: "10000+",
     title: "Projects Delivered",
   },
   {

@@ -244,11 +244,11 @@ export default function PackageCTA() {
         >
           {[
             {
-              value: "100+",
+              value: "10000+",
               label: "Projects",
             },
             {
-              value: "50+",
+              value: "120+",
               label: "Brands",
             },
             {

@@ -49,9 +49,9 @@ export default function WhyJoinUs() {
             <span className="h-[2px] w-12 bg-black/10" />
           </div>
           
-          <h2 className="text-4xl font-black uppercase tracking-tight text-black sm:text-5xl md:text-6xl">
+          <h2 className="text-4xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-black sm:text-5xl md:text-6xl">
             A Place to <br className="hidden sm:block" />
-            <span className="text-neutral-400">Do Your Best Work.</span>
+            <span className="text-[#FFCC00]">Do Your Best Work.</span>
           </h2>
           
           <p className="mt-6 text-lg text-neutral-600 max-w-2xl">

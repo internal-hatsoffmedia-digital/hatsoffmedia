@@ -1,6 +1,6 @@
 export const COMING_SOON_PASSWORD = "hatsoff";
 export const COMING_SOON_KEY = "hatsoff-coming-soon-unlocked";
-export const LAUNCH_DATE = new Date("2026-09-14T10:00:00+05:30");
+export const LAUNCH_DATE = new Date("2026-09-14T12:15:00+05:30");
 
 export function isLaunchLive() {
   if (typeof window === "undefined") {

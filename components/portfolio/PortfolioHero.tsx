@@ -7,8 +7,8 @@ import { ArrowDown, ArrowUpRight, Play, Volume2, VolumeX } from "lucide-react";
 import NumberTicker from "@/components/common/NumberTicker";
 
 const stats = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Global Brands" },
+  { value: "10000+", label: "Projects Delivered" },
+  { value: "120+", label: "Global Brands" },
   { value: "10+", label: "Industries Served" },
 ];
 
