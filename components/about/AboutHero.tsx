@@ -256,6 +256,7 @@ export default function AboutHero() {
         mt-16
         h-[340px]
         overflow-hidden
+        bg-white
         sm:mt-20
         sm:h-[420px]
         lg:h-[650px]
@@ -271,7 +272,7 @@ export default function AboutHero() {
           className="
           h-full
           w-full
-          object-cover
+          object-contain
           object-center
           "
         />
