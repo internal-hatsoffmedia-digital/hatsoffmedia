@@ -38,7 +38,7 @@ export default function PortfolioPage() {
               loop
               controls
               playsInline
-              className="h-[72vh] w-full object-cover md:h-[80vh]"
+              className="h-[72vh] w-full object-contain md:h-[80vh]"
             />
           </div>
         </div>
